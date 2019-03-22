@@ -1,0 +1,25 @@
+.mat-drawer-container{
+    width: 100%;
+    height: 100vh;
+   
+}
+.container-drawer{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.sidenav{
+    padding:20px;
+}
+.example-spacer{
+    flex: 1 1 auto;
+}
+.hide {
+    display:none;
+}
+.inline-bk{
+    display:block;
+    margin-bottom: 1em;
+
+}

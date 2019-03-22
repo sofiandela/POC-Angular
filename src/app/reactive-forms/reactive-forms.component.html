@@ -1,0 +1,96 @@
+<div class="container">
+  <h2>Registration Form</h2>
+  <form [formGroup]="registrationForm">
+
+    <div class="form-element">
+      <label>Name</label>
+      <input formControlName='name' type="text">
+      <div class="cnt-error" *ngIf="registrationForm.get('name').touched">
+          <div *ngIf="registrationForm.get('name').errors?.required">NAME is required</div>
+      </div>
+    </div>
+
+    <div class="form-element">
+      <label>Last Name</label>
+      <input formControlName='lastname' type="text">
+      <div class="cnt-error" *ngIf="registrationForm.get('lastname').touched">
+          <div *ngIf="registrationForm.get('lastname').errors?.required">lastname is required</div>
+      </div>
+    </div>
+
+    <div class="form-element">
+      <label>Phone number</label>
+      <input formControlName='phoneNumber' type="text">
+      <div class="cnt-error" *ngIf="registrationForm.get('phoneNumber').touched">
+          <div *ngIf="registrationForm.get('phoneNumber').errors?.required">Phone number is required</div>
+          <div *ngIf="registrationForm.get('phoneNumber').errors?.pattern">Mal</div>
+      </div>
+    </div>
+ 
+    <div formGroupName="address">
+      <h4>Address</h4>
+
+
+      <div class="form-element">
+        <label>city</label>
+        <input formControlName='city' type="text">
+      </div>
+
+      <div class="form-element">
+        <label>State</label>
+        <input formControlName='state'type="text">
+      </div>
+
+      <div class="form-element">
+        <label>Postal Code</label>
+        <input formControlName='postalCode'type="text">
+      </div>
+    </div>
+      
+    <div class="form-element">
+        <label>Email</label>
+        <input formControlName='email' type="email">
+        <div class="cnt-error" *ngIf="registrationForm.get('email').touched">
+            <div *ngIf="registrationForm.get('email').errors?.required">Email is required</div>
+            <div *ngIf="registrationForm.get('email').errors?.pattern">Mal</div>
+        </div>
+        
+      </div>
+
+    <div class="form-element">
+        <label>Username</label>
+        <input formControlName='username'type="text">
+        <div class="cnt-error" *ngIf="registrationForm.get('username').touched">
+            <div *ngIf="registrationForm.get('username').errors?.required">username is required</div>
+            <div *ngIf="registrationForm.get('username').errors?.pattern">Mal</div>
+        </div>
+        
+    </div>
+    
+    <div class="form-element" formGroupName="pass">
+
+      <label>Password</label>
+      <input formControlName='password' type="password">
+
+      <div class="cnt-error" *ngIf="registrationForm.get('pass').get('password').touched">
+          <div *ngIf="registrationForm.get('pass').get('password').errors?.required">password is required</div>
+          <div *ngIf="registrationForm.get('pass').get('password').errors?.pattern">mal</div>
+      </div>
+    
+
+      <div class="form-element">
+        <label>Confirm Password</label>
+        <input formControlName='confirmPassword' type="password">
+        <div class="cnt-error" *ngIf="registrationForm.get('pass').get('password').touched">
+            <div *ngIf="registrationForm.get('pass').get('confirmPassword').errors?.required">password is required</div>
+            <div *ngIf="registrationForm.get('pass').hasError('error')">mal</div>
+        </div>
+      </div>
+  </div>
+    <button type="submit" [disabled]="registrationForm.invalid">Register</button>
+  </form>
+
+ <pre> {{registrationForm.status}}</pre>
+ <pre> {{registrationForm.value | json}}</pre>
+
+</div>
